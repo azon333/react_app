@@ -1,0 +1,31 @@
+.bc-card{
+    width: 380px;
+    margin: 24px auto;
+    display: flex;
+    padding: 16px;
+    border-radius: 12px;
+    border: 1px solid rgba(18, 55, 102, 0.06);
+}
+
+.bc-photo{
+    width: 96px;
+    height: 96px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #fff;
+}
+
+.bc-name{
+    margin: 0 0 6px 0;
+    font-size: 18px;
+}
+
+.bc-role{
+    margin: 0 0 8px 0;
+    font-size: 13px;
+}
+
+.bc-desc{
+    margin: 0;
+    font-size: 13px;
+}

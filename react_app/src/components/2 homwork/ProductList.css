@@ -1,0 +1,41 @@
+.products {
+    width: 900px;
+    margin: 0 auto;
+}
+
+.product-list {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.product-item {
+    width: 170px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    text-align: center;
+}
+
+.product-img {
+    width: 100%;
+    height: 160px;
+    object-fit: contain;
+}
+
+.old-price {
+    text-decoration: line-through;
+    color: #888;
+    margin-right: 5px;
+}
+
+.new-price {
+    font-weight: bold;
+    color: red;
+}
+
+.delivery {
+    color: green;
+    margin-top: 5px;
+    font-size: 14px;
+}
