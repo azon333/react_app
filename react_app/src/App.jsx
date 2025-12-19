@@ -8,6 +8,8 @@ import MagicBall from "./components/3 homework/MagicBall";
 import ThemeBlock from "./components/3 homework/ThemeBlock";
 import ShopingList from "./components/4 homework/ShoppingList";
 import TodoList from "./components/todo/TodoList";
+import { Outlet } from "react-router";
+import Header from "./components/header/Header";
 
 function App() {
   return (
@@ -29,8 +31,14 @@ function App() {
         {/*5*/}
         {/*<TodoList/>*/}
 
-        {/*5*/}
-        <ShopingList/>
+        {/*6*/}
+        {/*<ShopingList/>*/}
+
+        {/*7*/}
+        <Header />
+        <main>
+            <Outlet />
+        </main>
     </>
   );
 }
