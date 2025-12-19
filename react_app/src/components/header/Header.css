@@ -1,0 +1,22 @@
+header{
+    background-color: #1c1c1c;
+    padding: 10px 30px;
+}
+
+.main-menu a{
+    display: inline-block;
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 10px;
+    opacity: .6;
+    transition: opacity .3s;
+}
+
+.main-menu a:hover{
+    opacity: 1;
+}
+
+.main-menu a.active{
+    color: #46087a;
+    opacity: 1;
+}
