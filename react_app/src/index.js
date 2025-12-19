@@ -4,10 +4,13 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import { RouterProvider } from "react-router";
 import router from "./router";
+import L18nProvider from "./providers/L18nProvider";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-    <RouterProvider router={router} />
+    <L18nProvider>
+        <RouterProvider router={router} />
+    </L18nProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function

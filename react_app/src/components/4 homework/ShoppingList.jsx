@@ -1,9 +1,10 @@
-import React, { useEffect, useReducer, useState } from "react";
+import React, { useEffect, useReducer, useContext } from "react";
 import ShoppingForm from "./ShoppingForm";
 import ShoppingItem from "./ShoppingItem";
 import list from "./data";
 import "./ShoppingList.css";
 import ShoppingReducer from "../reducers/ShoppingReducer";
+import l18nContext from "../contexts/l18nContext";
 
 const STORAGE_KEY = "shopping_products";
 
@@ -13,12 +14,10 @@ const ShopingList = () => {
         JSON.parse(localStorage.getItem(STORAGE_KEY)) || list
     );
 
-    // синхронизация в localStorage при изменениях
     useEffect(() => {
         localStorage.setItem(STORAGE_KEY, JSON.stringify(products));
     }, [products]);
 
-    // функции, ранее использующие setProducts, теперь диспатчат действия
     const addProduct = (title) => {
         const exists = products.some(
             (product) => product.title.toLowerCase() === title.toLowerCase()
@@ -44,20 +43,18 @@ const ShopingList = () => {
         dispatch({ type: "removeOne", payload: id });
     };
 
-    // подсчёты: totalUnits — общее количество единиц товаров, distinct — кол-во наименований
     const totalUnits = products.reduce((sum, p) => sum + (p.count || 0), 0);
     const distinct = products.length;
-
-
+    const { currentTexts } = useContext(l18nContext);
 
     return (
         <div className="shopping">
-            <h1 className="sum">Усього товарів (шт): {totalUnits}</h1>
-            <h2 className="sum">Найменувань: {distinct}</h2>
+            <h1 className="sum">{currentTexts.total}: {totalUnits}</h1>
+            <h2 className="sum">{currentTexts.distinct}: {distinct}</h2>
 
             <ShoppingForm addProduct={addProduct} />
 
-            <h1 className="shopList">Список покупок</h1>
+            <h1 className="shopList">{currentTexts.listTitle}</h1>
 
             <div className="shop-list">
                 {products.map((product) => (

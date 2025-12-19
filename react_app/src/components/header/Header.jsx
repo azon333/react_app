@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router";
 import "./Header.css";
+import LangSwitcher from "./LangSwitcher";
 
 const Header = () => {
     return (
@@ -10,6 +11,7 @@ const Header = () => {
                 <NavLink to="/shopping">Shopping</NavLink>
                 <NavLink to="/about">About</NavLink>
             </nav>
+            <LangSwitcher />
         </header>
     );
 };

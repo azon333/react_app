@@ -1,8 +1,11 @@
-import React, {useState} from "react";
+import React, { useContext, useState } from "react";
+import l18nContext from "../contexts/l18nContext";
+
 
 const ShoppingForm = ({addProduct}) => {
     const [title, setTitle] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
+    const { currentTexts } = useContext(l18nContext);
 
     const changeHandler = (e) => {
         setTitle(e.target.value);
@@ -10,7 +13,7 @@ const ShoppingForm = ({addProduct}) => {
 
     const submitHandler = () => {
         if (title.trim().length < 3) {
-            setErrorMessage("Title must be at least 3 symbols");
+            setErrorMessage(currentTexts.error);
             return;
         }
         addProduct(title);
@@ -29,7 +32,7 @@ const ShoppingForm = ({addProduct}) => {
                         if (e.key === "Enter") submitHandler();
                     }}
                 />
-                <button onClick={submitHandler}>Додати</button>
+                <button onClick={submitHandler}>{currentTexts.addBtn}</button>
             </div>
             {errorMessage && <div className="error">{errorMessage}</div>}
         </div>
